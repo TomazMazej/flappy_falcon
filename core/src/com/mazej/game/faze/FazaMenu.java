@@ -22,21 +22,21 @@ public class FazaMenu extends Faza {
 
     public FazaMenu(GameStateManager gsm) {
         super(gsm);
-        cam.setToOrtho(false, TheFalcon.WIDTH/2, TheFalcon.HEIGHT/2); //omejimo vidno polje
-        ozadje=new Texture("meni2.png"); //ozadje
-        gumb=new Texture("button.png"); //gumb
-        title=new Texture("title.png");
+        cam.setToOrtho(false, TheFalcon.WIDTH / 2, TheFalcon.HEIGHT / 2); // Omejimo vidno polje
+        ozadje = new Texture("meni2.png"); //ozadje
+        gumb = new Texture("button.png"); //gumb
+        title = new Texture("title.png");
     }
 
     @Override
     public void handleInput() {
-        if(Gdx.input.isTouched()){  //ce se dotaknemo enkrana(z misko, klikom...)
-            Vector3 tmp=new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
+        if (Gdx.input.isTouched()) {  // Ce se dotaknemo enkrana(z misko, klikom...)
+            Vector3 tmp = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
             cam.unproject(tmp);
-            Rectangle textureBounds = new Rectangle(cam.position.x-gumb.getWidth()/2, cam.position.y -20, gumb.getWidth(),gumb.getHeight());
-            if(textureBounds.contains(tmp.x,tmp.y)) {
-                gsm.set(new FazaIgranja(gsm)); //nas preusmeri v fazo igranja
-                dispose(); //se znebi kar ne potrebujemo da sprostimo spomin
+            Rectangle textureBounds = new Rectangle(cam.position.x - gumb.getWidth() / 2, cam.position.y - 20, gumb.getWidth(), gumb.getHeight());
+            if (textureBounds.contains(tmp.x, tmp.y)) {
+                gsm.set(new FazaIgranja(gsm)); // Nas preusmeri v fazo igranja
+                dispose(); // Se znebi kar ne potrebujemo da sprostimo spomin
             }
         }
     }
@@ -50,9 +50,8 @@ public class FazaMenu extends Faza {
     public void render(SpriteBatch sb) {
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
-        sb.draw(ozadje, 0,0); //nastavi ozadje enako okvirju
-        sb.draw(gumb, cam.position.x-gumb.getWidth()/2, cam.position.y -20); //gumb nastavi na sredino
-        //sb.draw(title, cam.position.x-title.getWidth()/2, cam.position.y + title.getHeight()/2);
+        sb.draw(ozadje, 0, 0); // Nastavi ozadje enako okvirju
+        sb.draw(gumb, cam.position.x - gumb.getWidth() / 2, cam.position.y - 20); // Gumb nastavi na sredino
         sb.end();
     }
 

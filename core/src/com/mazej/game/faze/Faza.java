@@ -16,14 +16,17 @@ public abstract class Faza {
     protected GameStateManager gsm;
     public Texture zgrOvira, spdOvira;
 
-    protected Faza(GameStateManager gsm){ //konstruktor
-        this.gsm=gsm;
-        cam=new OrthographicCamera();
-        mouse=new Vector3();
+    protected Faza(GameStateManager gsm) { //konstruktor
+        this.gsm = gsm;
+        cam = new OrthographicCamera();
+        mouse = new Vector3();
     }
 
     protected abstract void handleInput();
+
     public abstract void update(float dt); //Razlika med urejenimi Frejmi(FPS)
+
     public abstract void render(SpriteBatch sb); //Sprite batch uredi vse na ekran
+
     public abstract void dispose();
 }

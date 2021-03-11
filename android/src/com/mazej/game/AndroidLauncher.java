@@ -26,7 +26,7 @@ public class AndroidLauncher extends AndroidApplication implements AdService {
 	private static final String TAG ="AndroidLauncher";
 	protected AdView adView;
 
-	private static final String AD_UNIT_ID_INTERSTITIAL = "ca-app-pub-3940256099942544/1033173712"; //ca-app-pub-3940256099942544/1033173712 ca-app-pub-4585950872793310/6238037572
+	private static final String AD_UNIT_ID_INTERSTITIAL = "ca-app-pub-4585950872793310/6238037572"; //ca-app-pub-3940256099942544/1033173712
 	private InterstitialAd interstitialAd;
 
 	@Override
